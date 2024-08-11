@@ -9,7 +9,7 @@ const Main = () => {
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/api/universities")
+        fetch("http://79.174.80.113/api/universities")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -62,7 +62,7 @@ const Main = () => {
                         >
                             <div className={style.containerNewQuiz}>
                                 <div className={style.logo}>
-                                    <img src={`http://127.0.0.1:5000${department.urlImg}`} alt="logo university" />
+                                    <img src={`http://79.174.80.113${department.urlImg}`} alt="logo university" />
                                 </div>
                                 <div className={style.wrapper}>
                                     <div className={style.description}>
