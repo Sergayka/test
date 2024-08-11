@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    display: grid;
+    padding: 1rem;
+    color: black;
+    overflow: hidden;
+    min-height: 100vh;
+    background-image: url('./fone.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 1000px) {
+    body{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+}
