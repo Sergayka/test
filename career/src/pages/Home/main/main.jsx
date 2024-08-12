@@ -71,8 +71,7 @@ const Main = () => {
                                         <div className={style.description}>
                                             <h2>{department.full_name}</h2>
                                             <a href={department.url} target="_blank" rel="noopener noreferrer">
-                                                <p className={style.parOne}>{department.description}</p>
-                                                <p className={style.parTwo}>Узнать о вузе</p>
+                                                <p>Узнать о вузе</p>
                                             </a>
                                         </div>
                                         <div className={style.containerButton}>

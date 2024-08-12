@@ -137,7 +137,7 @@ p{
         max-width: 25rem;
 
         h2{
-          font-size: 2rem;
+          font-size: 1.2rem;
         }
     }
 
@@ -159,20 +159,24 @@ p{
     gap: 1rem;
   }
 
+  .logo img {
+    display: none;
+  }
+
 
   .containerNewQuiz{
     flex-direction: column;
     height: auto;
   }
 
-  .logo img {
-        width: 100%;
-        height: auto; /* Автоматическая высота для сохранения пропорций */
-        max-height: 12rem; /* Ограничение максимальной высоты */
-        border-radius: 1rem 1rem 0 0;
-        object-fit: cover; /* Сохранение пропорций и заполнение контейнера */
-        object-position: center; /* Центрирование изображения внутри контейнера */
-    }
+  // .logo img {
+  //       width: 100%;
+  //       height: auto; /* Автоматическая высота для сохранения пропорций */
+  //       max-height: 12rem; /* Ограничение максимальной высоты */
+  //       border-radius: 1rem 1rem 0 0;
+  //       object-fit: cover; /* Сохранение пропорций и заполнение контейнера */
+  //       object-position: center; /* Центрирование изображения внутри контейнера */
+  //   }
 
   .wrapper{
     border-radius: 0 0 1rem 1rem;

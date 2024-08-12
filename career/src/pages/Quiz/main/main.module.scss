@@ -163,12 +163,18 @@ h1{
 }
 
 @media screen and (max-width: 480px) {
+    .ul{
+        li{
+            padding: 10px;
+        }
+    }
+
     .containerQuiz{
         padding: 1.5rem;
         max-width: 20rem;
 
         h2{
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         .qestionIsResult{
