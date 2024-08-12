@@ -17,7 +17,7 @@ const Main = ({ newQuiz = true }) => {
         const fetchQuizData = async () => {
             try {
                 const nameFaculty = JSON.parse(localStorage.getItem('nameFculty'));
-                const response = await fetch(`http://127.0.0.1:5000/collectionOnName?nameColl=${nameFaculty}`);
+                const response = await fetch(`http://79.174.80.113/collectionOnName?nameColl=${nameFaculty}`);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
