@@ -4,9 +4,8 @@ import Spinner from '../../../components/spinner/spinner.jsx';
 import style from './main.module.scss';
 import { motion } from 'framer-motion';
 
-
 const Main = () => {
-    const [fetchdata, setFetchdata] = useState([]); 
+    const [fetchdata, setFetchdata] = useState([]);
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
@@ -18,9 +17,9 @@ const Main = () => {
             return response.json();
         })
         .then(data => {
-            console.log(data)
+            console.log('Полученные данные:', data); // Выводим все полученные данные в консоль
             setFetchdata(data);
-            setLoad(false);  
+            setLoad(false);
         })
         .catch(error => {
             console.error('Ошибка:', error);
@@ -45,7 +44,7 @@ const Main = () => {
     };
 
     return (
-        <motion.main 
+        <motion.main
           initial='hidden'
           animate='visible'
           className={style.main}
@@ -54,36 +53,38 @@ const Main = () => {
                 <Spinner />
             ) : (
                 fetchdata.length > 0 ? (
-                    fetchdata.map((department, index) => (
-                        <motion.section 
-                          custom={index}
-                          variants={blockAnimate}
-                          initial='hidden'
-                          animate='visible'
-                          key={department.id || index}
-                        >
-                            <div className={style.containerNewQuiz}>
-                                <div className={style.logo}>
-                                    {console.log(department)}
-                                    <img src={'http://79.174.80.113/${department.name}.jpg'} alt="logo university" />
-                                </div>
-                                <div className={style.wrapper}>
-                                    <div className={style.description}>
-                                        <h2>{department.full_name}</h2>
-                                        <a href={department.url} target="_blank" rel="noopener noreferrer">
-                                            <p className={style.parOne}>{department.description}</p>
-                                            <p className={style.parTwo}>Узнать о вузе</p>
-                                        </a>
+                    fetchdata.map((department, index) => {
+                        console.log(`Department ${index + 1} URL:`, department.urlImg); // Выводим значение urlImg в консоль
+                        return (
+                            <motion.section
+                              custom={index}
+                              variants={blockAnimate}
+                              initial='hidden'
+                              animate='visible'
+                              key={department.id || index}
+                            >
+                                <div className={style.containerNewQuiz}>
+                                    <div className={style.logo}>
+                                        <img src={`http://79.174.80.113/${department.urlImg}`} alt="logo university" />
                                     </div>
-                                    <div className={style.containerButton}>
-                                        <Link to='/quiz' className={style.containerButtonLink} onClick={() => inDefindFaculty(department)}>
-                                            Пройти тест
-                                        </Link>
+                                    <div className={style.wrapper}>
+                                        <div className={style.description}>
+                                            <h2>{department.full_name}</h2>
+                                            <a href={department.url} target="_blank" rel="noopener noreferrer">
+                                                <p className={style.parOne}>{department.description}</p>
+                                                <p className={style.parTwo}>Узнать о вузе</p>
+                                            </a>
+                                        </div>
+                                        <div className={style.containerButton}>
+                                            <Link to='/quiz' className={style.containerButtonLink} onClick={() => inDefindFaculty(department)}>
+                                                Пройти тест
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </motion.section>
-                    ))
+                            </motion.section>
+                        );
+                    })
                 ) : (
                     <p>No data available</p>
                 )
