@@ -4,12 +4,13 @@ import Spinner from '../../../components/spinner/spinner.jsx';
 import style from './main.module.scss';
 import { motion } from 'framer-motion';
 
+
 const Main = () => {
     const [fetchdata, setFetchdata] = useState([]); 
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
-        fetch("http://79.174.80.113/api/universities")
+        fetch("http://127.0.0.1:5000/api/universities")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -62,7 +63,7 @@ const Main = () => {
                         >
                             <div className={style.containerNewQuiz}>
                                 <div className={style.logo}>
-                                    <img src={`http://79.174.80.113${department.urlImg}`} alt="logo university" />
+                                    <img src={'/var/www/html/${department.urlImg}'} alt="logo university" />
                                 </div>
                                 <div className={style.wrapper}>
                                     <div className={style.description}>
