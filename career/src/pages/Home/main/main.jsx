@@ -64,6 +64,7 @@ const Main = () => {
                         >
                             <div className={style.containerNewQuiz}>
                                 <div className={style.logo}>
+                                    {console.log(department)}
                                     <img src={'http://79.174.80.113/${department}.jpg'} alt="logo university" />
                                 </div>
                                 <div className={style.wrapper}>
