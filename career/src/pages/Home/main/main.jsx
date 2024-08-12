@@ -10,7 +10,7 @@ const Main = () => {
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/api/universities")
+        fetch("http://79.174.80.113/api/universities")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
