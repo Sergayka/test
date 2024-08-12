@@ -42,19 +42,25 @@ def get_all_faculties_KSU():
     except Exception as e:
         print("Ошибка при получении данных:", e)
         return jsonify({'error': 'Ошибка при получении данных'}), 500
-    
 
-@app.route('/collectionOnName', methods = ['GET'])
+
+@app.route('/collectionOnName', methods=['GET'])
 def get_all_collectionsName():
     name = request.args.get('nameColl')
-    print(name)
+    print(f"Получено имя коллекции: {name}")
+    if name not in db.list_collection_names():
+        print(f"Коллекция с именем {name} не найдена")
+        return jsonify({'error': f'Коллекция с именем {name} не найдена'}), 404
+
     db_coll = db[name]
     try:
+        print(f"Ищем данные в коллекции: {name}")
         names = list(db_coll.find({}, {'_id': 0}))
+        print(f"Найдено {len(names)} документов")
         return jsonify(names)
     except Exception as e:
         print("Ошибка при получении данных:", e)
         return jsonify({'error': 'Ошибка при получении данных'}), 500
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(debug=True)
