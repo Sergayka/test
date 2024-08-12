@@ -18,6 +18,7 @@ const Main = () => {
             return response.json();
         })
         .then(data => {
+            console.log(data)
             setFetchdata(data);
             setLoad(false);  
         })
