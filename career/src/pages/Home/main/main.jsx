@@ -54,7 +54,7 @@ const Main = () => {
             ) : (
                 fetchdata.length > 0 ? (
                     fetchdata.map((department, index) => {
-                        console.log(`Department ${index + 1} URL:`, department.urlImg); // Выводим значение urlImg в консоль
+                        console.log(`Department ${index + 1} URL:`, department); // Выводим значение urlImg в консоль
                         return (
                             <motion.section
                               custom={index}
