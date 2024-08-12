@@ -22,10 +22,17 @@ const Main = ({ newQuiz = true }) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                
-                const data = await response.json();
-                startQuiz(setQuestions, setStartNewQuiz, data)
-                setFetchData(data);
+
+                const contentType = response.headers.get("content-type");
+
+                if (contentType && contentType.includes("application/json")) {
+                    const data = await response.json();
+                    startQuiz(setQuestions, setStartNewQuiz, data);
+                    setFetchData(data);
+                }
+                 else {
+                    throw new Error("Received non-JSON response");
+                }
             } catch (error) {
                 console.error('Ошибка:', error);
             } finally {
